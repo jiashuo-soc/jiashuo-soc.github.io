@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>张家硕｜社会学博士生</title>
+<style>
+:root {
+  --paper: #f4f0e8;
+  --paper-deep: #ebe4d8;
+  --ink: #25221e;
+  --muted: #6f685f;
+  --accent: #7b3f35;
+  --rule: #cfc5b6;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Arial, "Noto Sans SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+h1, h2, h3 {
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Songti SC", SimSun, serif;
+  font-weight: 500;
+  line-height: 1.25;
+}
+h1 { font-size: clamp(2.25rem, 6vw, 3.45rem); letter-spacing: -0.035em; }
+h2 { margin-bottom: 1rem; font-size: 1.32rem; }
+h2::before { content: ""; display: inline-block; width: 22px; margin-right: 10px; border-top: 2px solid var(--accent); vertical-align: 0.38em; }
+h3 { margin-bottom: 0.5rem; font-size: 1.08rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--ink); }
+
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 68px;
+  padding: 0 max(28px, calc((100vw - 920px) / 2));
+  background: rgba(244, 240, 232, 0.96);
+  border-top: 4px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+.nav-name { color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 1.08rem; font-weight: 700; letter-spacing: 0.015em; }
+.nav-links { display: flex; gap: 1.8rem; }
+.nav-link {
+  position: relative;
+  padding: 1.3rem 0 1.15rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.nav-link::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: transparent; }
+.nav-link:hover, .nav-link.active { color: var(--accent); }
+.nav-link.active::after { background: var(--accent); }
+.language-link { align-self: center; padding-left: 1.2rem; color: var(--accent); border-left: 1px solid var(--rule); font-family: "Songti SC", SimSun, serif; font-size: 0.86rem; }
+
+#main-content { flex: 1; width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 4.5rem 0 5rem; }
+.page-section { display: none; }
+.page-section.active { display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 5rem; align-items: start; }
+.section-content { min-width: 0; }
+.section-nav { position: sticky; top: 6.3rem; padding-top: 0.7rem; border-top: 1px solid var(--ink); }
+.section-nav-title { margin-bottom: 0.7rem; color: var(--ink); font-size: 0.69rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+.section-nav a { display: block; padding: 0.28rem 0; color: var(--muted); font-family: Georgia, "Times New Roman", serif; font-size: 0.88rem; line-height: 1.35; }
+.section-nav a:hover { color: var(--accent); }
+
+.about-header { display: flex; gap: 2rem; align-items: center; margin-bottom: 3rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--rule); }
+.about-photo {
+  width: 132px; height: 154px; border-radius: 0 !important;
+  position: relative; overflow: hidden; flex-shrink: 0;
+  background: var(--paper-deep);
+}
+.about-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 69% 63%; transform: scale(2); transform-origin: 69% 63%; }
+.about-info h1 { margin-bottom: 0.4rem; }
+.english-name { margin-left: 0.25em; color: var(--muted); font-family: Georgia, "Times New Roman", serif; font-size: 0.42em; font-weight: 400; letter-spacing: 0; vertical-align: 0.12em; }
+.about-info .subtitle { margin-bottom: 0.15rem; color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-style: italic; }
+.about-info .affiliation { color: var(--muted); font-size: 0.92rem; }
+
+.section-block { margin-bottom: 2.7rem; }
+.section-block:last-child { margin-bottom: 0; }
+.bio-text { max-width: 680px; font-family: Georgia, "Times New Roman", "Songti SC", serif; font-size: 1.06rem; line-height: 1.88; }
+
+.interest-tags { display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; }
+.interest-tag { position: relative; padding-left: 0.75rem; color: var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 0.94rem; }
+.interest-tag::before { content: "·"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+.timeline-item { display: grid; grid-template-columns: 125px minmax(0, 1fr); gap: 1.2rem; padding: 0.65rem 0 0.85rem; border-top: 1px solid var(--rule); }
+.timeline-item .date { color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 0.83rem; font-variant-numeric: oldstyle-nums; }
+.timeline-details { min-width: 0; }
+.timeline-item .title { font-weight: 700; }
+.timeline-item .org { display: block; color: var(--muted); font-size: 0.91rem; }
+
+.pub-list, .contact-list, .award-list { list-style: none; }
+.pub-item { padding: 1.35rem 0 1.55rem; border-top: 1px solid var(--rule); }
+.pub-item:last-child { border-bottom: 1px solid var(--rule); }
+.pub-title { font-family: "Songti SC", SimSun, Georgia, serif; font-size: 1.03rem; font-weight: 700; line-height: 1.65; }
+.pub-title-en { max-width: 700px; margin-top: 0.4rem; color: #514b44; font-family: Georgia, "Times New Roman", serif; font-size: 0.96rem; font-style: italic; line-height: 1.55; }
+.pub-meta { margin-top: 0.35rem; color: var(--muted); font-size: 0.87rem; }
+.pub-status { display: inline-block; margin-left: 0.35rem; color: var(--accent); font-size: 0.76rem; font-weight: 700; letter-spacing: 0.025em; text-transform: uppercase; }
+.publication-preview { margin-top: 1.1rem; }
+.publication-figure { margin: 0; }
+.publication-figure img { display: block; width: 100%; max-width: 700px; height: auto; background: #fff; border: 1px solid var(--rule); filter: saturate(0.78) contrast(0.96); }
+
+.conf-item, .role-item { padding: 0.55rem 0; }
+.conf-title, .role-title { font-weight: 700; }
+.conf-details, .role-org { color: var(--muted); font-size: 0.91rem; }
+
+.contact-list li { margin-bottom: 0.7rem; }
+.social-icons { display: flex; gap: 0.65rem; margin-top: 1.4rem; }
+.social-icon { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--rule); }
+.social-icon:hover { border-color: var(--accent); background: var(--paper-deep); }
+.social-icon svg { width: 17px; height: 17px; fill: var(--accent); }
+
+.award-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: baseline; padding: 0.55rem 0; border-top: 1px solid var(--rule); font-size: 0.91rem; }
+.award-item .award-year { color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 0.86rem; white-space: nowrap; }
+.award-group + .award-group { margin-top: 1.5rem; }
+.award-group-title { margin-bottom: 0.45rem; color: var(--accent); font-family: Arial, "Noto Sans SC", sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; }
+
+footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0 2.4rem; color: var(--muted); border-top: 1px solid var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 0.78rem; text-align: left; }
+
+@media (max-width: 700px) {
+  #navbar { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding: 0.85rem 20px 0; }
+  .nav-links { width: 100%; gap: 1.1rem; overflow-x: auto; }
+  .nav-link { padding: 0.55rem 0 0.8rem; }
+  #main-content, footer { width: calc(100% - 40px); }
+  #main-content { padding: 2.6rem 0 3.5rem; }
+  .page-section.active { display: block; }
+  .section-nav { display: none; }
+  .about-header { align-items: flex-start; gap: 1.2rem; }
+  .about-photo { width: 88px; height: 104px; }
+  .timeline-item { grid-template-columns: 1fr; gap: 0.15rem; }
+  .award-item { grid-template-columns: 1fr; gap: 0.05rem; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <span class="nav-name">张家硕</span>
+  <div class="nav-links">
+    <a href="#" class="nav-link active" data-page="about">关于</a>
+    <a href="#" class="nav-link" data-page="research">研究</a>
+    <a href="#" class="nav-link" data-page="publications">论文</a>
+    <a href="#" class="nav-link" data-page="contact">联系</a>
+    <a href="../" class="language-link" lang="en">English</a>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <!-- ===== ABOUT ===== -->
+  <section id="page-about" class="page-section active">
+
+    <div class="section-content">
+
+    <div class="about-header" id="about-profile">
+      <div class="about-photo"><img src="../profile.jpg" alt="张家硕"></div>
+      <div class="about-info">
+        <h1>张家硕 <span class="english-name" lang="en">Jiashuo Zhang</span></h1>
+        <p class="subtitle">社会学博士生</p>
+        <p class="affiliation">香港中文大学</p>
+      </div>
+    </div>
+
+    <div class="section-block" id="about-bio">
+      <p class="bio-text">
+        我现为香港中文大学社会学系博士生。目前的工作集中在两个方面：一是政治社会学，考察帝制中国与当代中国的官僚、组织、制度和权力网络；二是社会科学定量研究中的数据获取与清理，尝试提出可复用的工作流程，并将其应用于实质性研究。
+      </p>
+    </div>
+
+    <div class="section-block" id="about-education">
+      <h2>教育经历</h2>
+      <div class="timeline-item">
+        <div class="date">2026年8月—至今</div>
+        <div class="timeline-details">
+          <div class="title">社会学博士</div>
+          <div class="org">香港中文大学，中国香港</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">2021年9月—2026年6月</div>
+        <div class="timeline-details">
+          <div class="title">社会学学士（法学）</div>
+          <div class="org">北京大学，中国</div>
+          <div class="org">本科期间由化学专业转入社会学专业</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="date">2025年2月—6月</div>
+        <div class="timeline-details">
+          <div class="title">交换生</div>
+          <div class="org">墨尔本大学，澳大利亚</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block" id="about-interests">
+      <h2>研究兴趣</h2>
+      <div class="interest-tags">
+        <span class="interest-tag">政治社会学</span>
+        <span class="interest-tag">计算社会科学</span>
+        <span class="interest-tag">社会网络分析</span>
+        <span class="interest-tag">社会分层与流动</span>
+      </div>
+    </div>
+
+    <div class="section-block" id="about-teaching">
+      <h2>教学经历</h2>
+      <div class="role-item">
+        <span class="role-title">助教，《社会科学中的博弈论》（03131900）</span>
+        <span class="role-org"> · 北京大学，2024</span>
+      </div>
+    </div>
+
+    <div class="section-block" id="about-memberships">
+      <h2>学术组织</h2>
+      <div class="role-item">
+        <span class="role-title">美国社会学会</span>
+      </div>
+      <div class="role-item">
+        <span class="role-title">国际社会学会</span>
+      </div>
+    </div>
+
+    <div class="section-block" id="about-awards">
+      <h2>奖学金与荣誉</h2>
+      <div class="award-group">
+        <h3 class="award-group-title">研究生阶段</h3>
+        <ul class="award-list">
+          <li class="award-item"><span>香港中文大学研究生奖学金（每年港币229,200元）</span><span class="award-year">2026年至今</span></li>
+          <li class="award-item"><span>香港中文大学校长博士奖学金计划（港币80,000元）</span><span class="award-year">2026</span></li>
+        </ul>
+      </div>
+      <div class="award-group">
+        <h3 class="award-group-title">本科阶段</h3>
+        <ul class="award-list">
+          <li class="award-item"><span>广州医药王老吉海外奖学金（人民币10,000元）</span><span class="award-year">2025</span></li>
+          <li class="award-item"><span>李彦宏奖学金（人民币20,000元）</span><span class="award-year">2024</span></li>
+          <li class="award-item"><span>北京大学三好学生</span><span class="award-year">2023、2024</span></li>
+          <li class="award-item"><span>戴德梁行奖学金（人民币6,000元）</span><span class="award-year">2023</span></li>
+          <li class="award-item"><span>北京大学新生奖学金（人民币10,000元）</span><span class="award-year">2022</span></li>
+        </ul>
+      </div>
+      <div class="award-group">
+        <h3 class="award-group-title">其他</h3>
+        <ul class="award-list">
+          <li class="award-item"><span>第34届中国化学奥林匹克竞赛金牌</span><span class="award-year">2020</span></li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+
+    <aside class="section-nav" aria-label="关于页面目录">
+      <div class="section-nav-title">本页目录</div>
+      <a href="#about-profile">个人信息</a>
+      <a href="#about-bio">简介</a>
+      <a href="#about-education">教育经历</a>
+      <a href="#about-interests">研究兴趣</a>
+      <a href="#about-teaching">教学经历</a>
+      <a href="#about-memberships">学术组织</a>
+      <a href="#about-awards">奖学金与荣誉</a>
+    </aside>
+
+  </section>
+
+  <!-- ===== RESEARCH ===== -->
+  <section id="page-research" class="page-section">
+  </section>
+
+  <!-- ===== PUBLICATIONS ===== -->
+  <section id="page-publications" class="page-section">
+
+    <div class="section-content">
+
+    <h2 id="publications-list">论文发表</h2>
+
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title" lang="zh">士大夫的社会世界建构与演变：基于曾国藩日记/通信的案例研究</div>
+        <div class="pub-title-en">The Social World of Scholar-Officials in Traditional China:<br>A Micro-Sociological Analysis of Zeng Guofan's Diary and Correspondence</div>
+        <div class="pub-meta">周雪光、张家硕，2026 · 《社会》第2期 · CSSCI</div>
+        <div class="pub-meta"><a href="../士大夫的社会世界建构与演变.pdf">[PDF]</a></div>
+        <div class="publication-preview" id="publications-preview" aria-label="Figure from the article">
+          <figure class="publication-figure">
+            <img src="../zeng-guofan-social-network.png" alt="曾国藩社会交往网络图：不同颜色的节点表示家族、湘乡同乡、湖南同乡、同年、清廷官僚和湘军">
+          </figure>
+        </div>
+      </li>
+      <li class="pub-item">
+        <div class="pub-title" lang="zh">冒滥与抑遏之外：雍正朝西北军前效力群体的“自首潮”（1725–1729）</div>
+        <div class="pub-title-en">Beyond Deceptive and Deserved Credits: Self-Rectification of Officials Earning Promotion in the Qing's Northwestern Campaigns during the Early Yongzheng Reign (1725–1729)</div>
+        <div class="pub-meta">田耕、张家硕 · 《清史研究》 · 导师共同作者 <span class="pub-status">修改后再审</span> · CSSCI</div>
+      </li>
+    </ul>
+
+    <h2 id="translations-list" style="margin-top:2rem;">译作</h2>
+
+    <ul class="pub-list">
+      <li class="pub-item">
+        <div class="pub-title" lang="zh">田野研究中的实地纠葛与质量标准：20世纪中期芝加哥大学与哥伦比亚大学社会学之比较</div>
+        <div class="pub-meta">丹尼尔·门奇克 著，张家硕 译，2026 · 王利平：《逆旅行人：芝加哥大学社会科学传统》，北京大学出版社，第267-290页。</div>
+      </li>
+    </ul>
+
+    </div>
+
+    <aside class="section-nav" aria-label="论文页面目录">
+      <div class="section-nav-title">本页目录</div>
+      <a href="#publications-list">论文发表</a>
+      <a href="#translations-list">译作</a>
+    </aside>
+
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="page-contact" class="page-section">
+
+    <div class="section-content">
+
+    <h2 id="contact-info">联系方式</h2>
+
+    <ul class="contact-list">
+      <li>邮箱：<a href="mailto:jiashuo.zhang@link.cuhk.edu.hk">jiashuo.zhang@link.cuhk.edu.hk</a></li>
+      <li>香港新界沙田，香港中文大学社会学系</li>
+    </ul>
+
+    <div class="social-icons" id="contact-links">
+      <a href="#" class="social-icon" title="Google Scholar" aria-label="Google Scholar">
+        <svg viewBox="0 0 24 24"><path d="M12 24a7.2 7.2 0 0 0 3.25-.74l-3.42-5.9c-.74.4-1.56.64-2.43.64-2.68 0-4.85-2.17-4.85-4.85a4.82 4.82 0 0 1 .9-2.8L2.12 16.1A11.96 11.96 0 0 0 12 24z"/><path d="M23.84 11.62c0-.82-.07-1.62-.21-2.38H12v4.5h6.75a5.8 5.8 0 0 1-2.5 3.82l3.42 5.9A11.98 11.98 0 0 0 23.84 11.62z"/><path d="M5.27 8.75 1.85 4.93A11.96 11.96 0 0 0 0 12c0 2.58.82 4.97 2.2 6.93l.07-.07 3.44-5.94a4.77 4.77 0 0 1-.44-2.17z"/><path d="M12 4.8c1.8 0 3.42.62 4.7 1.83l3.5-3.5A11.94 11.94 0 0 0 12 0C7.4 0 3.38 2.5 1.85 4.93L5.27 8.8A7.14 7.14 0 0 1 12 4.8z"/></svg>
+      </a>
+      <a href="#" class="social-icon" title="ORCID" aria-label="ORCID">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-3.984-3.722h-2.335z"/></svg>
+      </a>
+      <a href="#" class="social-icon" title="ResearchGate" aria-label="ResearchGate">
+        <svg viewBox="0 0 24 24"><path d="M5.89 20.5c-.28 0-.55-.12-.73-.33-.18-.21-.26-.5-.22-.78l2.17-11.77c.09-.5.52-.84 1.03-.84h2.73c.57 0 1.04.41 1.11.97l.05.41c.59-.94 1.56-1.55 2.72-1.55 1.79 0 3.25 1.46 3.25 3.25 0 .28-.04.55-.1.82l-1.63 7.38c-.09.41-.45.69-.87.69h-2.1c-.42 0-.78-.28-.87-.69l-1.43-6.47c-.05-.22-.25-.38-.47-.38s-.42.16-.47.38l-1.43 6.47c-.09.41-.45.69-.87.69H8.61c-.21 0-.41-.08-.56-.22l.84-1.43-1.04 1.49c-.16.22-.41.35-.67.35H5.89z"/></svg>
+      </a>
+    </div>
+
+    </div>
+
+    <aside class="section-nav" aria-label="联系页面目录">
+      <div class="section-nav-title">本页目录</div>
+      <a href="#contact-info">联系方式</a>
+      <a href="#contact-links">学术主页</a>
+    </aside>
+
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 张家硕</p>
+</footer>
+
+<script>
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const page = this.dataset.page;
+
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    this.classList.add('active');
+
+    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>

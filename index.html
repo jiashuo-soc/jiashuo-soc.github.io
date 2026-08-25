@@ -68,6 +68,7 @@ a:hover { color: var(--ink); }
 .nav-link::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: transparent; }
 .nav-link:hover, .nav-link.active { color: var(--accent); }
 .nav-link.active::after { background: var(--accent); }
+.language-link { align-self: center; padding-left: 1.2rem; color: var(--accent); border-left: 1px solid var(--rule); font-family: "Songti SC", SimSun, serif; font-size: 0.86rem; }
 
 #main-content { flex: 1; width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 4.5rem 0 5rem; }
 .page-section { display: none; }
@@ -80,12 +81,11 @@ a:hover { color: var(--ink); }
 
 .about-header { display: flex; gap: 2rem; align-items: center; margin-bottom: 3rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--rule); }
 .about-photo {
-  width: 118px; height: 138px; border-radius: 0 !important;
+  width: 132px; height: 154px; border-radius: 0 !important;
   position: relative; overflow: hidden; flex-shrink: 0;
-  color: var(--paper) !important; background: var(--ink) !important;
-  border: 1px solid var(--ink);
+  background: var(--paper-deep);
 }
-.about-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 69% 63%; transform: scale(1.7); transform-origin: 69% 63%; }
+.about-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 69% 63%; transform: scale(2); transform-origin: 69% 63%; }
 .about-info h1 { margin-bottom: 0.4rem; }
 .about-info .subtitle { margin-bottom: 0.15rem; color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-style: italic; }
 .about-info .affiliation { color: var(--muted); font-size: 0.92rem; }
@@ -141,7 +141,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
   .page-section.active { display: block; }
   .section-nav { display: none; }
   .about-header { align-items: flex-start; gap: 1.2rem; }
-  .about-photo { width: 78px; height: 94px; font-size: 1.65rem !important; }
+  .about-photo { width: 88px; height: 104px; }
   .timeline-item { grid-template-columns: 1fr; gap: 0.15rem; }
   .award-item { grid-template-columns: 1fr; gap: 0.05rem; }
 }
@@ -156,6 +156,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
     <a href="#" class="nav-link" data-page="research">Research</a>
     <a href="#" class="nav-link" data-page="publications">Publications</a>
     <a href="#" class="nav-link" data-page="contact">Contact</a>
+    <a href="zh/" class="language-link" lang="zh">中文</a>
   </div>
 </nav>
 
