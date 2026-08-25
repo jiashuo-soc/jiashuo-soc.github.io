@@ -81,10 +81,11 @@ a:hover { color: var(--ink); }
 .about-header { display: flex; gap: 2rem; align-items: center; margin-bottom: 3rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--rule); }
 .about-photo {
   width: 118px; height: 138px; border-radius: 0 !important;
-  flex-shrink: 0; object-fit: cover;
+  position: relative; overflow: hidden; flex-shrink: 0;
   color: var(--paper) !important; background: var(--ink) !important;
   border: 1px solid var(--ink);
 }
+.about-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 69% 63%; transform: scale(1.7); transform-origin: 69% 63%; }
 .about-info h1 { margin-bottom: 0.4rem; }
 .about-info .subtitle { margin-bottom: 0.15rem; color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-style: italic; }
 .about-info .affiliation { color: var(--muted); font-size: 0.92rem; }
@@ -99,8 +100,9 @@ a:hover { color: var(--ink); }
 
 .timeline-item { display: grid; grid-template-columns: 125px minmax(0, 1fr); gap: 1.2rem; padding: 0.65rem 0 0.85rem; border-top: 1px solid var(--rule); }
 .timeline-item .date { color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 0.83rem; font-variant-numeric: oldstyle-nums; }
+.timeline-details { min-width: 0; }
 .timeline-item .title { font-weight: 700; }
-.timeline-item .org { color: var(--muted); font-size: 0.91rem; }
+.timeline-item .org { display: block; color: var(--muted); font-size: 0.91rem; }
 
 .pub-list, .contact-list, .award-list { list-style: none; }
 .pub-item { padding: 1.35rem 0 1.55rem; border-top: 1px solid var(--rule); }
@@ -125,6 +127,8 @@ a:hover { color: var(--ink); }
 
 .award-item { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1rem; align-items: baseline; padding: 0.55rem 0; border-top: 1px solid var(--rule); font-size: 0.91rem; }
 .award-item .award-year { color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 0.86rem; white-space: nowrap; }
+.award-group + .award-group { margin-top: 1.5rem; }
+.award-group-title { margin-bottom: 0.45rem; color: var(--accent); font-family: Arial, "Noto Sans SC", sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; }
 
 footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0 2.4rem; color: var(--muted); border-top: 1px solid var(--ink); font-family: Georgia, "Times New Roman", serif; font-size: 0.78rem; text-align: left; }
 
@@ -163,8 +167,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
     <div class="section-content">
 
     <div class="about-header" id="about-profile">
-      <div class="about-photo" style="display:flex;align-items:center;justify-content:center;color:#49657a;font-family:Georgia,serif;font-size:2.5rem;">JZ</div>
-      <!-- Replace above div with: <img src="photo.jpg" alt="Jiashuo Zhang" class="about-photo"> -->
+      <div class="about-photo"><img src="profile.jpg" alt="Jiashuo Zhang"></div>
       <div class="about-info">
         <h1>Jiashuo Zhang</h1>
         <p class="subtitle">PhD Student in Sociology</p>
@@ -182,19 +185,25 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
       <h2>Education</h2>
       <div class="timeline-item">
         <div class="date">Aug 2026 - Present</div>
-        <div class="title">Ph.D. in Sociology</div>
-        <div class="org">The Chinese University of Hong Kong, Hong Kong SAR</div>
+        <div class="timeline-details">
+          <div class="title">Ph.D. in Sociology</div>
+          <div class="org">The Chinese University of Hong Kong, Hong Kong SAR</div>
+        </div>
       </div>
       <div class="timeline-item">
         <div class="date">Sep 2021 - Jun 2026</div>
-        <div class="title">LL.B. in Sociology</div>
-        <div class="org">Peking University, China</div>
-        <div class="org">Transferred from Chemistry</div>
+        <div class="timeline-details">
+          <div class="title">LL.B. in Sociology</div>
+          <div class="org">Peking University, China</div>
+          <div class="org">Transferred from Chemistry</div>
+        </div>
       </div>
       <div class="timeline-item">
         <div class="date">Feb 2025 - Jun 2025</div>
-        <div class="title">Exchange Student</div>
-        <div class="org">University of Melbourne, Australia</div>
+        <div class="timeline-details">
+          <div class="title">Exchange Student</div>
+          <div class="org">University of Melbourne, Australia</div>
+        </div>
       </div>
     </div>
 
@@ -228,16 +237,29 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
 
     <div class="section-block" id="about-awards">
       <h2>Scholarships &amp; Awards</h2>
-      <ul class="award-list">
-        <li class="award-item"><span>Postgraduate Studentship, The Chinese University of Hong Kong (HK$229,200 annually)</span><span class="award-year">2026-Present</span></li>
-        <li class="award-item"><span>CUHK Vice-Chancellor's PhD Scholarship Scheme (HK$80,000)</span><span class="award-year">2026</span></li>
-        <li class="award-item"><span>Guangzhou Pharmaceutical Wanglaoji Overseas Scholarship (¥10,000)</span><span class="award-year">2025</span></li>
-        <li class="award-item"><span>Robin Li (Baidu) Scholarship (¥20,000)</span><span class="award-year">2024</span></li>
-        <li class="award-item"><span>Merit Student (三好学生), PKU</span><span class="award-year">2023, 2024</span></li>
-        <li class="award-item"><span>Cushman &amp; Wakefield Scholarship (¥6,000)</span><span class="award-year">2023</span></li>
-        <li class="award-item"><span>Freshman Scholarship, PKU (¥10,000)</span><span class="award-year">2022</span></li>
-        <li class="award-item"><span>Gold Medal in the 34th Chinese Chemical Olympiad</span><span class="award-year">2020</span></li>
-      </ul>
+      <div class="award-group">
+        <h3 class="award-group-title">Postgraduate</h3>
+        <ul class="award-list">
+          <li class="award-item"><span>Postgraduate Studentship, The Chinese University of Hong Kong (HK$229,200 annually)</span><span class="award-year">2026-Present</span></li>
+          <li class="award-item"><span>CUHK Vice-Chancellor's PhD Scholarship Scheme (HK$80,000)</span><span class="award-year">2026</span></li>
+        </ul>
+      </div>
+      <div class="award-group">
+        <h3 class="award-group-title">Undergraduate</h3>
+        <ul class="award-list">
+          <li class="award-item"><span>Guangzhou Pharmaceutical Wanglaoji Overseas Scholarship (¥10,000)</span><span class="award-year">2025</span></li>
+          <li class="award-item"><span>Robin Li (Baidu) Scholarship (¥20,000)</span><span class="award-year">2024</span></li>
+          <li class="award-item"><span>Merit Student (三好学生), PKU</span><span class="award-year">2023, 2024</span></li>
+          <li class="award-item"><span>Cushman &amp; Wakefield Scholarship (¥6,000)</span><span class="award-year">2023</span></li>
+          <li class="award-item"><span>Freshman Scholarship, PKU (¥10,000)</span><span class="award-year">2022</span></li>
+        </ul>
+      </div>
+      <div class="award-group">
+        <h3 class="award-group-title">Others</h3>
+        <ul class="award-list">
+          <li class="award-item"><span>Gold Medal in the 34th Chinese Chemical Olympiad</span><span class="award-year">2020</span></li>
+        </ul>
+      </div>
     </div>
 
     </div>
