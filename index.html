@@ -83,11 +83,11 @@ a:hover { color: var(--ink); }
 
 .about-header { display: flex; gap: 2rem; align-items: center; margin-bottom: 3rem; padding-bottom: 2.2rem; border-bottom: 1px solid var(--rule); }
 .about-photo {
-  width: 132px; height: 154px; border-radius: 0 !important;
+  width: 132px; height: 198px; border-radius: 0 !important;
   position: relative; overflow: hidden; flex-shrink: 0;
   background: var(--paper-deep);
 }
-.about-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 69% 63%; transform: scale(2); transform-origin: 69% 63%; }
+.about-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .about-info h1 { margin-bottom: 0.4rem; }
 .about-info .subtitle { margin-bottom: 0.15rem; color: var(--accent); font-family: Georgia, "Times New Roman", serif; font-size: 1.05rem; font-style: italic; }
 .about-info .affiliation { color: var(--muted); font-size: 0.92rem; }
@@ -143,7 +143,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
   .page-section.active { display: block; }
   .section-nav { display: none; }
   .about-header { align-items: flex-start; gap: 1.2rem; }
-  .about-photo { width: 88px; height: 104px; }
+  .about-photo { width: 88px; height: 132px; }
   .timeline-item { grid-template-columns: 1fr; gap: 0.15rem; }
   .award-item { grid-template-columns: 1fr; gap: 0.05rem; }
 }
