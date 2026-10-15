@@ -156,7 +156,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
   <span class="nav-name">Jiashuo Zhang</span>
   <div class="nav-links">
     <a href="#" class="nav-link active" data-page="about">About</a>
-    <a href="#" class="nav-link" data-page="research">Research</a>
+    <a href="#" class="nav-link" data-page="research" hidden>Research</a>
     <a href="#" class="nav-link" data-page="publications">Publications</a>
     <a href="#" class="nav-link" data-page="contact">Contact</a>
     <a href="JiashuoZhang.pdf" class="cv-link" target="_blank" rel="noopener">CV</a>
@@ -287,7 +287,15 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
   </section>
 
   <!-- ===== RESEARCH ===== -->
-  <section id="page-research" class="page-section">
+  <section id="page-research" class="page-section" hidden>
+    <div class="section-content">
+      <section class="section-block" id="research-historical-political">
+        <h2>Historical and Political Sociology</h2>
+      </section>
+      <section class="section-block" id="research-computational">
+        <h2>Computational Social Science</h2>
+      </section>
+    </div>
   </section>
 
   <!-- ===== PUBLICATIONS ===== -->
@@ -301,7 +309,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
       <li class="pub-item">
         <div class="pub-title" lang="zh">士大夫的社会世界建构与演变：基于曾国藩日记/通信的案例研究</div>
         <div class="pub-title-en">The Social World of Scholar-Officials in Traditional China:<br>A Micro-Sociological Analysis of Zeng Guofan's Diary and Correspondence</div>
-        <div class="pub-meta">周雪光、张家硕，2026 · 《社会》第2期 · CSSCI</div>
+        <div class="pub-meta">Xueguang Zhou and Jiashuo Zhang, 2026 · <em>Society</em>, No. 2 · CSSCI</div>
         <div class="pub-meta">Reprinted in full by the Information Center for Social Sciences, RUC, No. 7 (2026)</div>
         <div class="pub-meta"><a href="士大夫的社会世界建构与演变.pdf">[Article PDF]</a> · <a href="曾国藩-人大转载.pdf">[Full-text reprint]</a></div>
         <div class="publication-preview" id="publications-preview" aria-label="Figure from the article">
@@ -313,7 +321,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
       <li class="pub-item">
         <div class="pub-title" lang="zh">冒滥与抑遏之外：雍正朝西北军前效力群体的“自首潮”（1725–1729）</div>
         <div class="pub-title-en">Beyond Deceptive and Deserved Credits: Self-Rectification of Officials Earning Promotion in the Qing's Northwestern Campaigns during the Early Yongzheng Reign (1725–1729)</div>
-        <div class="pub-meta">田耕、张家硕 · 《清史研究》 · 导师共同作者 <span class="pub-status">Accept</span> · CSSCI</div>
+        <div class="pub-meta">Geng Tian and Jiashuo Zhang · <em>Qing History Research</em> · Supervisor co-author <span class="pub-status">Accept</span> · CSSCI</div>
       </li>
     </ul>
 
@@ -322,7 +330,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
     <ul class="pub-list">
       <li class="pub-item">
         <div class="pub-title" lang="zh">田野研究中的实地纠葛与质量标准：20世纪中期芝加哥大学与哥伦比亚大学社会学之比较</div>
-        <div class="pub-meta">丹尼尔·门奇克 著，张家硕 译，2026 · 王利平：《逆旅行人：芝加哥大学社会科学传统》，北京大学出版社，第267-290页。</div>
+        <div class="pub-meta">Daniel A. Menchik; translated by Jiashuo Zhang, 2026 · In L. Wang (ed.), <em>The Wayward Travelers: The University of Chicago Tradition in Social Science</em>, Peking University Press, pp. 267–290.</div>
       </li>
     </ul>
 
@@ -348,7 +356,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
       <li>Department of Sociology, The Chinese University of Hong Kong, Shatin, N.T., Hong Kong SAR</li>
     </ul>
 
-    <div class="social-icons" id="contact-links">
+    <div class="social-icons" id="contact-links" hidden>
       <a href="#" class="social-icon" title="Google Scholar" aria-label="Google Scholar">
         <svg viewBox="0 0 24 24"><path d="M12 24a7.2 7.2 0 0 0 3.25-.74l-3.42-5.9c-.74.4-1.56.64-2.43.64-2.68 0-4.85-2.17-4.85-4.85a4.82 4.82 0 0 1 .9-2.8L2.12 16.1A11.96 11.96 0 0 0 12 24z"/><path d="M23.84 11.62c0-.82-.07-1.62-.21-2.38H12v4.5h6.75a5.8 5.8 0 0 1-2.5 3.82l3.42 5.9A11.98 11.98 0 0 0 23.84 11.62z"/><path d="M5.27 8.75 1.85 4.93A11.96 11.96 0 0 0 0 12c0 2.58.82 4.97 2.2 6.93l.07-.07 3.44-5.94a4.77 4.77 0 0 1-.44-2.17z"/><path d="M12 4.8c1.8 0 3.42.62 4.7 1.83l3.5-3.5A11.94 11.94 0 0 0 12 0C7.4 0 3.38 2.5 1.85 4.93L5.27 8.8A7.14 7.14 0 0 1 12 4.8z"/></svg>
       </a>
@@ -365,7 +373,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
     <aside class="section-nav" aria-label="Contact page navigation">
       <div class="section-nav-title">On This Page</div>
       <a href="#contact-info">Contact Information</a>
-      <a href="#contact-links">Academic Links</a>
+      <a href="#contact-links" hidden>Academic Links</a>
     </aside>
 
   </section>

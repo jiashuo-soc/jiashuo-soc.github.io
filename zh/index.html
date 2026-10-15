@@ -157,7 +157,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
   <span class="nav-name">张家硕</span>
   <div class="nav-links">
     <a href="#" class="nav-link active" data-page="about">关于</a>
-    <a href="#" class="nav-link" data-page="research">研究</a>
+    <a href="#" class="nav-link" data-page="research" hidden>研究</a>
     <a href="#" class="nav-link" data-page="publications">论文</a>
     <a href="#" class="nav-link" data-page="contact">联系</a>
     <a href="../JiashuoZhang.pdf" class="cv-link" target="_blank" rel="noopener">简历</a>
@@ -288,7 +288,15 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
   </section>
 
   <!-- ===== RESEARCH ===== -->
-  <section id="page-research" class="page-section">
+  <section id="page-research" class="page-section" hidden>
+    <div class="section-content">
+      <section class="section-block" id="research-historical-political">
+        <h2>历史—政治社会学</h2>
+      </section>
+      <section class="section-block" id="research-computational">
+        <h2>计算社会科学</h2>
+      </section>
+    </div>
   </section>
 
   <!-- ===== PUBLICATIONS ===== -->
@@ -349,7 +357,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
       <li>香港新界沙田，香港中文大学社会学系</li>
     </ul>
 
-    <div class="social-icons" id="contact-links">
+    <div class="social-icons" id="contact-links" hidden>
       <a href="#" class="social-icon" title="Google Scholar" aria-label="Google Scholar">
         <svg viewBox="0 0 24 24"><path d="M12 24a7.2 7.2 0 0 0 3.25-.74l-3.42-5.9c-.74.4-1.56.64-2.43.64-2.68 0-4.85-2.17-4.85-4.85a4.82 4.82 0 0 1 .9-2.8L2.12 16.1A11.96 11.96 0 0 0 12 24z"/><path d="M23.84 11.62c0-.82-.07-1.62-.21-2.38H12v4.5h6.75a5.8 5.8 0 0 1-2.5 3.82l3.42 5.9A11.98 11.98 0 0 0 23.84 11.62z"/><path d="M5.27 8.75 1.85 4.93A11.96 11.96 0 0 0 0 12c0 2.58.82 4.97 2.2 6.93l.07-.07 3.44-5.94a4.77 4.77 0 0 1-.44-2.17z"/><path d="M12 4.8c1.8 0 3.42.62 4.7 1.83l3.5-3.5A11.94 11.94 0 0 0 12 0C7.4 0 3.38 2.5 1.85 4.93L5.27 8.8A7.14 7.14 0 0 1 12 4.8z"/></svg>
       </a>
@@ -366,7 +374,7 @@ footer { width: min(920px, calc(100% - 64px)); margin: 0 auto; padding: 1.5rem 0
     <aside class="section-nav" aria-label="联系页面目录">
       <div class="section-nav-title">本页目录</div>
       <a href="#contact-info">联系方式</a>
-      <a href="#contact-links">学术主页</a>
+      <a href="#contact-links" hidden>学术主页</a>
     </aside>
 
   </section>
